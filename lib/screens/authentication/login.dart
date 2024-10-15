@@ -13,11 +13,6 @@ class Sign_In extends StatefulWidget {
 class _Sign_InState extends State<Sign_In> {
   final AuthServices _authServices = AuthServices();
 
-  // create user from firebase with uid
-  UserModel? _userWithFirebaseUserId( User? user ){
-    return user != null ? UserModel(uid: user.uid) : null;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +35,7 @@ class _Sign_InState extends State<Sign_In> {
             print("error in sign in anonymously");
           }else{
             print("sign in anonymously");
-            dynamic user = _userWithFirebaseUserId(result);
-            print(user.uid);
+            print(result.uid);
           }
         }, 
         child:const Text(
