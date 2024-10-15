@@ -10,6 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrapper();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Firebase Authentication",
+      home: Wrapper(),
+    );
   }
 }

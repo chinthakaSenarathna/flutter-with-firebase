@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_with_firebase/services/auth.dart';
 
 class Sign_In extends StatefulWidget {
   const Sign_In({super.key});
@@ -8,10 +9,39 @@ class Sign_In extends StatefulWidget {
 }
 
 class _Sign_InState extends State<Sign_In> {
+  final AuthServices _authServices = AuthServices();
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Login"),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.white30,
+        elevation: 10,
+        title:const Text(
+          "SignIn",
+          style: TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 30
+          ),
+        ),
+      ),
+      body: ElevatedButton(
+        onPressed: () async{
+          dynamic result = _authServices.signInAnonymously();
+          if(result == null){
+            print("error in sign in anonymously");
+          }else{
+            print("sign in anonymously");
+          }
+        }, 
+        child:const Text(
+          "Sign In Anonymously",
+          style: TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0)
+          ),
+          )
+        ),
     );
   }
 }
