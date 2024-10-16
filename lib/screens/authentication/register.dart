@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_with_firebase/constants/colors.dart';
 import 'package:flutter_with_firebase/constants/styles.dart';
+import 'package:flutter_with_firebase/services/auth.dart';
 
 class Register extends StatefulWidget {
   final Function toggle;
@@ -11,12 +12,15 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final AuthServices _auth = AuthServices();
+
   // form key
   final _formKey = GlobalKey<FormState>();
 
   // email password state
   String email = "";
-  String password = ""; 
+  String password = "";
+  String error = "";
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +122,14 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
+                      error.isNotEmpty ? 
+                      Text(
+                        error,
+                        style:const TextStyle(
+                          color: Colors.red,
+                        ),
+                      ) : 
+                      const SizedBox.shrink(),
                       // register with social account
                       const Text(
                         "Register with social accounts",
@@ -168,7 +180,15 @@ class _RegisterState extends State<Register> {
                       ),
                       GestureDetector(
                         // method
-                        onTap: () {},
+                        onTap: () async{
+                          dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                          if(result == null){
+                            // error
+                            setState(() {
+                              error = "error occured in registration";
+                            });
+                          }
+                        },
 
                         child: Container(
                           height: 45,
