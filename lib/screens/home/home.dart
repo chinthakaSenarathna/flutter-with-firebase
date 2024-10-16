@@ -38,13 +38,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.only(right: 10),
             child: ElevatedButton(
               onPressed: () async{
-                dynamic result = await _authServices.signOut();
-                if(result == null){
-                  print("error in sign out");
-                }else{
-                  print("sign out");
-                  print(result);
-                }
+                await _authServices.signOut();
               }, 
               child:const Icon(Icons.logout)
             ),

@@ -36,23 +36,38 @@ class _Sign_InState extends State<Sign_In> {
           )
         ),
       ),
-      body: ElevatedButton(
-        onPressed: () async{
-          dynamic result = await _authServices.signInAnonymously();
-          if(result == null){
-            print("error in sign in anonymously");
-          }else{
-            print("sign in anonymously");
-            print(result.uid);
-          }
-        },
-        child:const Text(
-          "Sign In Anonymously",
-          style: TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0)
-          ),
-          )
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            const Text("I am a highly competent and enthusiastic undergraduate with a strong academic background and"
+              "exceptional technical skills. Possessing a passion for continuous learning, I have cultivated"
+              "my self-learning capabilities and adaptability to stay at the forefront of advancements in the field of software engineering.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: textLight,
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () async{
+                dynamic result = await _authServices.signInAnonymously();
+                if(result == null){
+                  print("error in sign in anonymously");
+                }else{
+                  print("sign in anonymously");
+                  print(result.uid);
+                }
+              },
+              child:const Text(
+                "Sign In Anonymously",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0)
+                ),
+                )
+              ),
+          ],
         ),
+      ),
     );
   }
 }
