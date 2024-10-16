@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_with_firebase/constants/colors.dart';
 import 'package:flutter_with_firebase/models/UserModel.dart';
 import 'package:flutter_with_firebase/services/auth.dart';
 
@@ -16,9 +17,10 @@ class _Sign_InState extends State<Sign_In> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgBlack,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        shadowColor: Colors.blue,
+        backgroundColor: bgBlack,
+        shadowColor: textLight,
         elevation: 10,
         title:const Text(
           "SignIn",
@@ -43,7 +45,7 @@ class _Sign_InState extends State<Sign_In> {
             print("sign in anonymously");
             print(result.uid);
           }
-        }, 
+        },
         child:const Text(
           "Sign In Anonymously",
           style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_with_firebase/constants/colors.dart';
 import 'package:flutter_with_firebase/services/auth.dart';
 
 class Home extends StatefulWidget {
@@ -14,9 +15,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgBlack,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        shadowColor: Colors.blue,
+        backgroundColor: bgBlack,
+        shadowColor: textLight,
         elevation: 10,
         title:const Text(
           "Home",

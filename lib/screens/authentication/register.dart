@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_with_firebase/constants/colors.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -11,9 +12,10 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgBlack,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        shadowColor: Colors.blue,
+        backgroundColor: bgBlack,
+        shadowColor: textLight,
         elevation: 10,
         title:const Text(
           "Home",
