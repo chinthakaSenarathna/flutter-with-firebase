@@ -97,10 +97,15 @@ class _Sign_InState extends State<Sign_In> {
                       "Login with social accounts",
                       style: signInDescription,
                     ),
-                    Image.asset(
-                      "assets/google.png",
-                      height: 40,
-                      width: 40,
+                    GestureDetector(
+                      // Sign in with google
+                      onTap: () {},
+                      
+                      child: Image.asset(
+                        "assets/google.png",
+                        height: 40,
+                        width: 40,
+                      ),
                     ),
                     const SizedBox(
                       height: 20,
@@ -132,21 +137,37 @@ class _Sign_InState extends State<Sign_In> {
                       height: 20,
                     ),
                     // button
-                    ElevatedButton(
-                      onPressed: () {}, 
-                      child:const Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.black
+                    GestureDetector(
+                      // method
+                      onTap: () {},
+
+                      child: Container(
+                        height: 45,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          color: bgBlack,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(width: 2,color: mainBlue)
                         ),
-                      )
+                        child:const Center(
+                          child: Text(
+                            "Log In",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     // sign in anonymously
-                    ElevatedButton(
-                      onPressed: () async{
+                    GestureDetector(
+                      // method
+                      onTap: () async{
                         dynamic result = await _authServices.signInAnonymously();
                         if(result == null){
                           print("error in sign in anonymously");
@@ -155,12 +176,26 @@ class _Sign_InState extends State<Sign_In> {
                           print(result.uid);
                         }
                       },
-                      child:const Text(
-                        "Sign In Anonymously",
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0)
+
+                      child: Container(
+                        height: 45,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          color: bgBlack,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(width: 2,color: mainBlue)
                         ),
-                      )
+                        child:const Center(
+                          child: Text(
+                            "Log In As Gest",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 )
@@ -172,3 +207,22 @@ class _Sign_InState extends State<Sign_In> {
     );
   }
 }
+
+
+// ElevatedButton(
+//                       onPressed: () async{
+//                         dynamic result = await _authServices.signInAnonymously();
+//                         if(result == null){
+//                           print("error in sign in anonymously");
+//                         }else{
+//                           print("sign in anonymously");
+//                           print(result.uid);
+//                         }
+//                       },
+//                       child:const Text(
+//                         "Sign In Anonymously",
+//                         style: TextStyle(
+//                           color: Color.fromARGB(255, 0, 0, 0)
+//                         ),
+//                       )
+//                     ),
