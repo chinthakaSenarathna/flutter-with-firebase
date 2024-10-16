@@ -48,7 +48,7 @@ class _Sign_InState extends State<Sign_In> {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
+                padding: EdgeInsets.all(20),
                 child: Text(
                   "I am a highly competent and enthusiastic undergraduate with a strong academic background and"
                   "exceptional technical skills. Possessing a passion for continuous learning, I have cultivated",
@@ -70,143 +70,152 @@ class _Sign_InState extends State<Sign_In> {
               const SizedBox(
                 height: 20,
               ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    // email
-                    TextFormField(
-                      decoration: textInputDecoration,
-                      validator: (value) => value?.isEmpty == true ? "Enter a valid email" : null,
-                      onChanged: (value) {
-                        setState(() {
-                          email = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    // password
-                    TextFormField(
-                      decoration: textInputDecoration.copyWith(hintText: "Password"),
-                      validator: (value) => value!.length < 6 ? "Enter a valid password" : null,
-                      onChanged: (value) {
-                        setState(() {
-                          password = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    // sign in with google
-                    const Text(
-                      "Login with social accounts",
-                      style: signInDescription,
-                    ),
-                    GestureDetector(
-                      // Sign in with google
-                      onTap: () {},
-
-                      child: Image.asset(
-                        "assets/google.png",
-                        height: 40,
-                        width: 40,
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      // email
+                      TextFormField(
+                        decoration: textInputDecoration,
+                        style:const TextStyle(
+                          color: Colors.white
+                        ),
+                        validator: (value) => value?.isEmpty == true ? "Enter a valid email" : null,
+                        onChanged: (value) {
+                          setState(() {
+                            email = value;
+                          });
+                        },
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    // register
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Do not have an account",
-                          style: signInDescription,
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // password
+                      TextFormField(
+                        decoration: textInputDecoration.copyWith(hintText: "password"),
+                        style:const TextStyle(
+                          color: Colors.white
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        GestureDetector(
-                          // go to the Register page 
-                          onTap: () {},
-                          child:const Text(
-                            "Register",
-                            style: TextStyle(
-                              color: mainBlue
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    // button
-                    GestureDetector(
-                      // method
-                      onTap: () {},
-
-                      child: Container(
-                        height: 45,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: bgBlack,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(width: 2,color: mainBlue)
-                        ),
-                        child:const Center(
-                          child: Text(
-                            "Log In",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17
-                            ),
-                          ),
+                        validator: (value) => value!.length < 6 ? "Enter a valid password" : null,
+                        onChanged: (value) {
+                          setState(() {
+                            password = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // sign in with google
+                      const Text(
+                        "Login with social accounts",
+                        style: signInDescription,
+                      ),
+                      GestureDetector(
+                        // Sign in with google
+                        onTap: () {},
+                
+                        child: Image.asset(
+                          "assets/google.png",
+                          height: 40,
+                          width: 40,
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    // sign in anonymously
-                    GestureDetector(
-                      // method
-                      onTap: () async{
-                        dynamic result = await _authServices.signInAnonymously();
-                        if(result == null){
-                          print("error in sign in anonymously");
-                        }else{
-                          print("sign in anonymously");
-                          print(result.uid);
-                        }
-                      },
-
-                      child: Container(
-                        height: 45,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: bgBlack,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(width: 2,color: mainBlue)
-                        ),
-                        child:const Center(
-                          child: Text(
-                            "Log In As Gest",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // register
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Do not have an account",
+                            style: signInDescription,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          GestureDetector(
+                            // go to the Register page 
+                            onTap: () {},
+                            child:const Text(
+                              "Register",
+                              style: TextStyle(
+                                color: mainBlue
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // button
+                      GestureDetector(
+                        // method
+                        onTap: () {},
+                
+                        child: Container(
+                          height: 45,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: bgBlack,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(width: 2,color: mainBlue)
+                          ),
+                          child:const Center(
+                            child: Text(
+                              "Log In",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 17
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                )
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // sign in anonymously
+                      GestureDetector(
+                        // method
+                        onTap: () async{
+                          dynamic result = await _authServices.signInAnonymously();
+                          if(result == null){
+                            print("error in sign in anonymously");
+                          }else{
+                            print("sign in anonymously");
+                            print(result.uid);
+                          }
+                        },
+                
+                        child: Container(
+                          height: 45,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: bgBlack,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(width: 2,color: mainBlue)
+                          ),
+                          child:const Center(
+                            child: Text(
+                              "Log In As Gest",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 17
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ),
               ),
             ],
           ),

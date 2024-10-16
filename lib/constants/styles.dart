@@ -8,7 +8,7 @@ const TextStyle signInDescription = TextStyle(
 );
 
 const InputDecoration textInputDecoration = InputDecoration(
-  hintText: "Email",
+  hintText: "email",
   hintStyle: TextStyle(
     color: textLight,
     fontSize: 15
