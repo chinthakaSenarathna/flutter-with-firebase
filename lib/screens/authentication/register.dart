@@ -3,7 +3,8 @@ import 'package:flutter_with_firebase/constants/colors.dart';
 import 'package:flutter_with_firebase/constants/styles.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+  final Function toggle;
+  const Register({super.key, required this.toggle});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -149,7 +150,9 @@ class _RegisterState extends State<Register> {
                           ),
                           GestureDetector(
                             // method
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggle();
+                            },
 
                             child:const Text(
                               "Login",

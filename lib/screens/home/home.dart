@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_with_firebase/constants/colors.dart';
+import 'package:flutter_with_firebase/constants/styles.dart';
+import 'package:flutter_with_firebase/models/UserModel.dart';
 import 'package:flutter_with_firebase/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +17,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
+    final user = Provider.of<UserModel?>(context);
+
     return Scaffold(
       backgroundColor: bgBlack,
       appBar: AppBar(
@@ -44,6 +50,48 @@ class _HomeState extends State<Home> {
             ),
           )
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: Text(
+                "Hello ${user?.uid}",
+                textAlign: TextAlign.center,
+                style:const TextStyle(
+                  color: mainBlue,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                "I am a highly competent and enthusiastic undergraduate with a strong academic background and"
+                "exceptional technical skills. Possessing a passion for continuous learning, I have cultivated",
+                textAlign: TextAlign.center,
+                style: signInDescription,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.asset(
+                "assets/man.jpg",
+                height: 200,
+                width: 200,
+                fit: BoxFit.cover,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
