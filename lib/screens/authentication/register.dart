@@ -10,8 +10,25 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Register"),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        shadowColor: Colors.blue,
+        elevation: 10,
+        title:const Text(
+          "Home",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontWeight: FontWeight.w900
+          ),
+        ),
+        shape:const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20)
+          )
+        ),
+      ),
     );
   }
 }

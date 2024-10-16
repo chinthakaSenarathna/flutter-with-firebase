@@ -16,7 +16,7 @@ class AuthServices{
   }
 
   // sign in anonymously
-  Future signInAnonymously () async{
+  Future signInAnonymously() async{
     try{
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
@@ -32,5 +32,13 @@ class AuthServices{
   // sign in using email and password
   // sign in using gmail
   // sign out
+  Future signOut() async{
+    try{
+      return await _auth.signOut();
+    }catch(err){
+      print(err.toString());
+      return null;
+    }
+  }
   
 }

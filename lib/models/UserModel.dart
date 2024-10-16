@@ -1,4 +1,4 @@
-// create user with UID
+// create user with uid
 
 class UserModel{
   final String uid;

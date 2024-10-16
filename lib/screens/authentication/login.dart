@@ -17,15 +17,21 @@ class _Sign_InState extends State<Sign_In> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white30,
+        backgroundColor: Colors.blue,
+        shadowColor: Colors.blue,
         elevation: 10,
         title:const Text(
           "SignIn",
           style: TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 30
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 30,
+            fontWeight: FontWeight.w900
           ),
+        ),
+        shape:const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20)
+          )
         ),
       ),
       body: ElevatedButton(
