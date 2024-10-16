@@ -6,3 +6,25 @@ const TextStyle signInDescription = TextStyle(
   fontSize: 13,
   fontWeight: FontWeight.w300
 );
+
+const InputDecoration textInputDecoration = InputDecoration(
+  hintText: "Email",
+  hintStyle: TextStyle(
+    color: textLight,
+    fontSize: 15
+  ),
+  fillColor: bgBlack,
+  filled: true,
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: mainBlue, width: 1),
+    borderRadius: BorderRadius.all(
+      Radius.circular(100)
+    )
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: mainBlue, width: 2),
+    borderRadius: BorderRadius.all(
+      Radius.circular(100)
+    )
+  )
+);

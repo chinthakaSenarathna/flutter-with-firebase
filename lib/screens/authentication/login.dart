@@ -49,9 +49,9 @@ class _Sign_InState extends State<Sign_In> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-                child: Text("I am a highly competent and enthusiastic undergraduate with a strong academic background and"
-                  "exceptional technical skills. Possessing a passion for continuous learning, I have cultivated"
-                  "my self-learning capabilities and adaptability to stay at the forefront of advancements in the field of software engineering.",
+                child: Text(
+                  "I am a highly competent and enthusiastic undergraduate with a strong academic background and"
+                  "exceptional technical skills. Possessing a passion for continuous learning, I have cultivated",
                   textAlign: TextAlign.center,
                   style: signInDescription
                 ),
@@ -67,12 +67,16 @@ class _Sign_InState extends State<Sign_In> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
                     // email
                     TextFormField(
+                      decoration: textInputDecoration,
                       validator: (value) => value?.isEmpty == true ? "Enter a valid email" : null,
                       onChanged: (value) {
                         setState(() {
@@ -80,8 +84,12 @@ class _Sign_InState extends State<Sign_In> {
                         });
                       },
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     // password
                     TextFormField(
+                      decoration: textInputDecoration.copyWith(hintText: "Password"),
                       validator: (value) => value!.length < 6 ? "Enter a valid password" : null,
                       onChanged: (value) {
                         setState(() {
@@ -100,7 +108,7 @@ class _Sign_InState extends State<Sign_In> {
                     GestureDetector(
                       // Sign in with google
                       onTap: () {},
-                      
+
                       child: Image.asset(
                         "assets/google.png",
                         height: 40,
